@@ -36,7 +36,7 @@
   --text-color: #333;
   --second-text-color: #555;
   --white-color: #fff;
-  --cover-color: linear-gradient(45deg, #ffcbd3, #f57b8e);
+  --cover-color: linear-gradient(45deg, #fca7b3, #7fe5f3);
   --pages-color: linear-gradient(90deg, #fff, #ddd);
   --border: 0.125rem solid rgb(248, 105, 126);
   --box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.2);
