@@ -1,0 +1,474 @@
+/* <uniquifier>: Use a unique and descriptive class name */
+/* <weight>: Use a value from 400 to 700 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  font-family: "Arial", cursive;
+}
+.caveat {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.edu-au-vic-wa-nt-hand {
+  font-family: "Edu AU VIC WA NT Hand", cursive;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.dosis {
+  font-family: "Dosis", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --bg-color: #212225;
+  --main-color: #ffcbd3;
+  --text-color: #333;
+  --second-text-color: #555;
+  --white-color: #fff;
+  --cover-color: linear-gradient(45deg, #ffcbd3, #f57b8e);
+  --pages-color: linear-gradient(90deg, #fff, #ddd);
+  --border: 0.125rem solid rgb(248, 105, 126);
+  --box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.2);
+  --text-profile: #f8697e;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  overflow: hidden;
+}
+.wrapper {
+  position: relative;
+  width: 66rem;
+  height: 45rem;
+  padding: 2rem;
+  perspective: 250rem;
+  animation: show-animate 2s forwards;
+}
+
+@keyframes show-animate {
+  0%,30% {
+    opacity: 0;
+    transform: rotate(-20deg);
+  }
+  100% {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+.cover {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+  width: 50%;
+  height: 90%;
+  background: var(--cover-color);
+  box-shadow: var(--box-shadow);
+  border-top-left-radius: 0.6rem;
+  border-bottom-left-radius: 0.6rem;
+  transform-origin: right;
+}
+
+.cover.cover-left {
+  z-index: -1;
+}
+
+.cover.cover-right {
+  z-index: 100;
+  transition: transform 1s cubic-bezier(.645, .045, .355, 1);
+}
+
+.cover.cover-right.turn {
+  transform: rotateY(180deg);
+}
+
+.book {
+  position: relative;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  perspective: 250rem;
+}
+
+.book .book-page {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: var(--pages-color);
+  box-shadow: 0 0 0.6rem rgba(0, 0, 0, 0.1);
+  display: flex;
+  padding: 2rem;
+}
+
+.book-page.page-left {
+  box-shadow: -.6rem .6rem .6rem rgba(0, 0, 0, .1);
+}
+
+.profile-page {
+  display: flex;
+  margin: auto;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.profile-page img {
+  max-width: 220px;
+  border-radius: 5%;
+  margin-bottom: 0.8rem;
+  border: var(--border);
+}
+
+.profile-page h1 {
+  font-size: 2.5rem;
+  line-height: 1;
+  color: var(--text-profile);
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 1rem;
+  font-weight: 550;
+}
+
+.profile-page p {
+  text-align: center;
+  font-weight: 700;
+  color: #555;
+}
+
+.book-page.page-right {
+  position: absolute;
+  right: 0;
+  transform-style: preserve-3d;
+  transform-origin: left;
+  transition: transform 1s cubic-bezier(.645, .045, .355, 1) ;
+}
+
+.book-page.page-right.turn {
+  transform: rotateY(-180deg);
+
+}
+
+.book-page .page-front,
+.book-page .page-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--pages-color);
+  padding: 1.5rem 2rem;
+}
+
+.book-page .page-front {
+  transform: rotateY(0deg) translateZ(1px);
+}
+.book-page .page-back {
+  transform: rotateY(180deg) translateZ(1px);
+}
+
+.title {
+  text-align: center;
+  margin: .3rem auto;
+  font-weight: 600;
+  color: #f8697e;
+  font-size: 1.6rem;
+  font-family: "Edu AU VIC WA NT Hand", cursive;
+}
+
+.content-text {
+  position: relative;
+  padding-left: 0 auto;
+  margin-top: 3rem;
+  font-size: 70px;
+  text-align: center;
+  font-family: "Edu AU VIC WA NT Hand";
+  color: #555;
+}
+
+
+.number-page {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nextprev-btn {
+  position: absolute;
+  bottom: .9rem;
+  right: 1.5rem;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  font-size: 2rem;
+  color: var(--second-text-color);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s ;
+}
+
+.nextprev-btn:hover {
+  color: palevioletred;
+}
+
+.nextprev-btn.back {
+  left: 1.5rem;
+}
+
+.official-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.official-box .official-content {
+  flex: 1 1 10rem;
+  border-radius: .1rem;
+  padding: .8rem .5rem 1.1rem;
+  text-align: center;
+}
+
+.official-content img {
+  border-radius: .5rem;
+  margin-top: .7rem;
+  padding: 0;
+  box-shadow: 0 0 0.6rem rgba(94, 94, 94, 0.6);
+}
+.official-content .foto-2 {
+  border-radius: 0;
+}
+.official-content:hover img {
+  transform: scale(1.1);
+}
+
+.official-content p:first-child {
+  margin-top: 4rem;
+  text-align: left;
+}
+
+.official-content p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  text-align: right;
+  font-weight: 400;
+  font-size: .9rem;
+  padding: 0;
+}
+
+.official-content h3 {
+  font-size: 1rem;
+  text-align: right;
+}
+
+.bx.bx-music {
+  color: #ffb06f;
+  font-size: 1.3rem;
+}
+.songs-box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.songs-box .songs-content {
+  flex: 1 1 1;
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
+.songs-content img {
+  border: .3rem solid #141516;
+  border-radius: .9rem;
+}
+
+.songs-content img:hover {
+  transform: scale(1.2);
+  border: .1rem solid rgb(255, 176, 111);
+  box-shadow: 0 0 0.6rem rgba(255, 176, 111, 0.815);
+}
+
+
+.bx.bxs-star {
+  color: #ffb06f;
+}
+.message-box {
+  position: relative;
+  display: grid;
+  margin-top: 1.5rem;
+  margin-left: 4rem;
+  grid-template-columns: repeat(2, 9rem); /* 3 kolom dengan lebar yang sama */
+  grid-gap: 10px; /* Jarak antar foto */
+}
+
+.message-box img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Menjaga aspek rasio gambar */
+  border: 0.125rem solid #555;
+  border-radius: .4rem; /* Membuat sudut gambar sedikit melengkung */
+}
+
+.message-box img:hover {
+  transform: scale(1.6);
+  border: .1rem solid #ffb06f;
+  box-shadow: 0 0 0.6rem rgba(255, 176, 111, 0.815);
+}
+
+.favorite-box {
+  display: relative;
+  /* position: relative; */
+  /* display: grid;
+  margin-top: 1.5rem;
+  margin-left: 4rem;
+  grid-template-columns: repeat(2, 9rem);
+  grid-gap: 10px;  */
+}
+
+.favorite-content {
+  position: absolute;
+  display: grid;
+  margin-top: .8rem;
+  margin-left: 2.3rem;
+  grid-template-columns: repeat(4, 5.5rem);
+  border: .160rem solid #ffb06f; 
+  border-radius: 1rem;
+  grid-gap: .3rem; 
+}
+
+.favorite-box img {
+  width: 100%;
+  height: auto;
+  object-fit: cover; /* Menjaga aspek rasio gambar */
+}
+
+.favorite-box img:first-child {
+  border-radius: 1rem 0 0 0;
+}
+.favorite-box img:nth-child(4) {
+  border-radius: 0 1rem 0 0;
+}
+.favorite-box img:nth-child(17) {
+  border-radius: 0 0 0 1rem;
+}
+.favorite-box img:nth-child(20) {
+  border-radius: 0 0 1rem 0;
+}
+
+.favorite-box img:hover {
+  transform: scale(1.6);
+  border: .1rem solid #ffb06f;
+  box-shadow: 0 0 0.6rem rgba(255, 176, 111, 0.815);
+  border-radius: 1rem;
+}
+
+.bx.bx-camera {
+  color: #555;
+}
+.bx.bxs-heart {
+  color: #f8697e;
+}
+.back-profile {
+  position: absolute;
+  bottom: 1.2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  background: transparent;
+  border: var(--border);
+  border-radius: 2rem;
+  color: var(--text-color);
+  font-size: 1.1rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  transition: .5s;
+}
+
+.back-profile:hover {
+  background: #f8697e;
+  color: black;
+}
+
+.back-profile i {
+  font-size: 2rem;
+}
+.back-profile p {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  color: #333;
+  transform: translateX(-50%) scale(.5);
+  font-size: .9rem;
+  opacity: 0;
+  transition: .5s;
+}
+
+.kata-content p {
+  text-align: justify;
+  font-size: .8rem;
+  line-height: 1.3rem;
+  font-weight: 680;
+  color: #333;
+}
+
+.kata-content .notes {
+  font-size: .6rem;
+  line-height: .2rem;
+  font-style: italic;
+  color: #555;
+}
+
+.back-profile:hover p {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  top: -1.8rem;
+}
+/* efek snow */
+#snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+#playPrompt {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
+}
+
+#playButton {
+  padding: 20px 40px;
+  font-size: 24px;
+  cursor: pointer;
+  background-color: #ff69b4; /* Warna pink */
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+#playButton:hover {
+  color: rgb(41, 118, 206);
+}

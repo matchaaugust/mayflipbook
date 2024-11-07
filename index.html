@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk MAY</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&display=swap" rel="stylesheet">
+    <!-- sumber : https://youtu.be/zrBVFGlnyA8?si=xphDq3SRelIFe_DD -->
+</head>
+
+<body>
+    <div id="playPrompt" class="play-prompt">
+        <button id="playButton">Open</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const playPrompt = document.getElementById('playPrompt');
+            const playButton = document.getElementById('playButton');
+            const wrapper = document.querySelector('.wrapper');
+            const bgMusic = document.getElementById('bgMusic');
+            const snowCanvas = document.getElementById('snow');
+        
+            // Pastikan wrapper dan canvas salju tersembunyi saat awal
+            wrapper.style.display = 'none';
+            snowCanvas.style.display = 'none';
+        
+            playButton.addEventListener('click', function() {
+                bgMusic.play();
+                playPrompt.style.display = 'none';
+                wrapper.style.display = 'block';
+                snowCanvas.style.display = 'block'; // Tampilkan canvas salju
+                
+                // Mulai animasi salju (pastikan fungsi ini ada di script.js)
+                if (typeof startSnowAnimation === 'function') {
+                    startSnowAnimation();
+                }
+            });
+        });
+    </script>
+
+    <div class="wrapper">
+        <div class="cover cover-left"></div>
+        <div class="cover cover-right"></div>
+
+        <div class="book">
+            <!-- profile page -->
+            <div class="book-page page-left">
+                <div class="profile-page">
+                    <img src="img/13.jpg" alt="">
+                    <h1 class="dosis">THE  STORY  OF  MAY</h1>
+                    <br>
+                    <p class="dosis">- Chapter One -</p>
+                </div>
+            </div>
+
+            <!-- page 1 & 2 -->
+            <div class="book-page page-right turn" id="turn-1">
+                <!-- page 1 -->
+                <div class="page-front">
+                    <h1 class="title">- 365 Day -</h1>
+                    <div class="content-box">
+                        <div class="content-text">
+                            <p class="edu-au-vic-wa-nt-hand">Run <br> it <br> Back!</p>
+                        </div>   
+                    </div>
+
+                    <span class="number-page"></span>
+
+                    <!-- next button -->
+                    <span class="nextprev-btn" data-page="turn-1">
+                        <i class="bx bx-chevron-right"></i>
+                    </span>
+    
+                </div>
+                <!-- page 2 (official) -->
+                <div class="page-back">
+                    <h1 class="title">the place May likes</h1>
+                    <div class="official-box">
+                        <div class="official-content">
+                            <img src="img/titigantung.jpg" alt="" width="100rem">
+                        </div>
+
+                        <div class="official-content">
+                            <p class="edu-au-vic-wa-nt-hand">May likes Titi Gantung because it was at Titi Gantung where May met May best friend. We met by chance while looking for used books and comics, and eventually, we became best friends and found we had the same hobby: hunting for used books and comics</p>
+                        </div>
+
+                        <div class="official-content">
+                            <h3 class="edu-au-vic-wa-nt-hand">Titi Gantung</h3>
+                        </div>
+
+                    </div>
+                    <span class="number-page"></span>
+
+                    <!-- prev button -->
+                    <span class="nextprev-btn back" data-page="turn-1">
+                        <i class='bx bx-chevron-left'></i>
+                    </span>
+                </div>
+            </div>
+
+            <!-- page 3 & 4 -->
+            <div class="book-page page-right turn" id="turn-2">
+                <!-- page 3 songs -->
+                <div class="page-front">
+                    <h1 class="title"><i class='bx bx-music'></i> Songs that May likes <i class='bx bx-music'></i></h1>
+                    <div class="songs-box">
+                        <div class="songs-content">
+                            <img src="img/lagumay1.jpg" alt="" width="111rem" height="160rem">
+                        </div>
+
+                        <div class="songs-content">
+                            <img src="img/lagumay2.jpg" alt="" width="111rem" height="160rem">
+                        </div> 
+
+
+                    </div>
+                    <span class="number-page"></span>
+
+                    <!-- prev button -->
+                    <span class="nextprev-btn" data-page="turn-2">
+                        <i class='bx bx-chevron-right'></i>
+                    </span>
+                </div>
+
+                <!-- page 4 (message) -->
+                <div class="page-back">
+                    <h1 class="title">Songs For May <i class='bx bxs-star' ></i></h1>
+                    <div class="message-box">
+                        <img src="img/lagumay3.jpg" alt="Favorite moment 1">
+                        <img src="img/lagumay4.jpg" alt="Favorite moment 2">
+                    </div>
+                    <span class="number-page"></span>
+
+                    <!-- prev button -->
+                    <span class="nextprev-btn back" data-page="turn-2">
+                        <i class='bx bx-chevron-left'></i>
+                    </span>
+                </div>                   
+            </div>
+
+            <!-- page 5 & 6 -->
+            <div class="book-page page-right turn" id="turn-3">
+                <!-- page 5 (favorite ) -->
+                <div class="page-front">
+                    <h1 class="title">Photos of May <i class='bx bx-camera' ></i></h1> 
+                    <div class="favorite-box">
+                        <div class="favorite-content">
+                            <img src="img/moment1.jpg" alt="">
+                            <img src="img/moment2.jpg" alt="">
+                            <img src="img/moment3.jpg" alt="">
+                            <img src="img/moment4.jpg" alt="">
+                            <img src="img/moment5.jpg" alt="">
+                            <img src="img/moment8.jpg" alt="">
+                            <img src="img/moment11.jpg" alt="">
+                            <img src="img/moment12.jpg" alt="">
+                            <img src="img/moment15.jpg" alt="">
+                            <img src="img/moment16.jpg" alt="">
+                            <img src="img/moment19.jpg" alt="">
+                            <img src="img/13.jpg" alt="">
+                        </div>
+                    </div>
+                    <span class="number-page"></span>
+
+                    <!-- prev button -->
+                    <span class="nextprev-btn" data-page="turn-3">
+                        <i class='bx bx-chevron-right'></i>
+                    </span>
+                </div>
+
+                <!-- page 6 (kata) -->
+                <div class="page-back">
+                    <div class="kata-box">
+                        <div class="kata-content">
+                            <Hi class="dosis">Hi May,  the cute girl,  my only queen
+                                <br>
+                                Keep up the spirit! <i class='bx bxs-heart' ></i>
+                                <br>
+                                Keep shining and never doubt your strength 
+                                <br>
+                                <br>
+                                You've come so far, and I believe there's nothing you can't achieve.
+                                <br>
+                                <br>
+                                No matter what, I’m here cheering you on—believe in yourself, because I believe in you."
+                                <br>
+                                <br>
+                                Keep pursuing your dreams and never stop believing in yourself. 
+                                <br> <br>
+                                
+                                You have everything it takes to make the impossible possible, and I’ll always be here, supporting you every step of the way.
+                                <br><br>
+                                <span class="notes">*note: I chose to wear pink and gray, because U love pink, and Matcha loves gray. <br>
+                                Turns out pink and gray can be a very good combination, right? <br> Just like the two of us hehe ;></span>
+                                </p>
+                        </div>
+                    </div>
+                    <span class="number-page"></span>
+
+                    <!-- prev button -->
+                    <span class="nextprev-btn back" data-page="turn-3">
+                        <i class='bx bx-chevron-left'></i>
+                    </span>
+
+                    <a href="#" class="back-profile">
+                        <p>Page1</p>
+                        <i class='bx bx-home-heart' ></i>
+                    </a>
+                </div>
+            </div>       
+        </div>     
+    </div>
+    <canvas id="snow" ></canvas>
+    <audio id="bgMusic" autoplay loop>
+        <source src="Billie Eilish - BIRDS OF A FEATHER (Official Lyric Video) (mp3cut.net) (1).mp3" type="audio/mpeg">
+    </audio>
+    
+    <script src="script.js"></script>
+</body>
+</html>
